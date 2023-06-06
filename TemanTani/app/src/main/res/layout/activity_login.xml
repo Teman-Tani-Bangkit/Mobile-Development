@@ -58,7 +58,73 @@
             android:textColor="#535353"
             />
 
-        
+        <com.dicoding.temantani.ui.login.EdLoginCustom
+            android:id="@+id/ed_login_email"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_register_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:inputType="textEmailAddress"
+            />
+
+        <com.dicoding.temantani.ui.login.EdLoginCustom
+            android:id="@+id/ed_login_password"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_login_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_login_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_green"
+            android:text="@string/register_now"
+            />
+
+        <LinearLayout
+            android:id="@+id/container_to_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/btn_login"
+            app:layout_constraintTop_toBottomOf="@id/btn_login"
+            app:layout_constraintEnd_toEndOf="@id/btn_login"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_text_to_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="@string/text_akun"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_to_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/regist"
+                android:textColor="@color/green_primary"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

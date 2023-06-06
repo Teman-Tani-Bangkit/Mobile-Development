@@ -6,4 +6,14 @@
     <string name="register_now">Register Now</string>
     <string name="selamat_datang">Selamat Datang!</string>
     <string name="login_description">Selamat datang kembali di Teman Tani! Silahkan isi terlebih dahulu agar bisa masuk</string>
+    <string name="text_akun">Belum punya akun?</string>
+    <string name="regist">Daftar Sekarang!</string>
+    <string name="gandum_segar">Gandum Segar</string>
+    <string name="jhon_doe">Jhon Doe</string>
+    <string name="description">Description</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</string>
+    <string name="rp">Rp</string>
+    <string name="harga">5000</string>
+    <string name="kg">/Kg</string>
+    <string name="pesan">Pesan</string>
 </resources>
