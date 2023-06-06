@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TemanTani</string>
+    <string name="imageview">TemanTani</string>
+    <string name="daftar_sekarang">Daftar Sekarang</string>
+    <string name="register_description">Silahkan daftar terlebih dahulu agar bisa masuk dan mengeksplor lebih!</string>
+    <string name="register_now">Register Now</string>
+    <string name="selamat_datang">Selamat Datang!</string>
+    <string name="login_description">Selamat datang kembali di Teman Tani! Silahkan isi terlebih dahulu agar bisa masuk</string>
 </resources>

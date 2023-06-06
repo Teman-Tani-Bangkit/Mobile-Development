@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5"
+    tools:context=".ui.register.RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/whole_page_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/img_back_arrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="@string/imageview" />
+
+        <ImageView
+            android:id="@+id/img_register_ilustration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_back_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/login_logo"
+            android:contentDescription="@string/imageview" />
+
+        <TextView
+            android:id="@+id/tv_register_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_register_ilustration"
+            android:layout_marginTop="12dp"
+            android:text="@string/selamat_datang"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_register_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_register_headline"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_description"
+            android:textSize="16sp"
+            android:textColor="#535353"
+            />
+
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

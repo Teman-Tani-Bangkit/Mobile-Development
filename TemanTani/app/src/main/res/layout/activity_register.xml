@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5"
+    tools:context=".ui.register.RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/whole_page_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/img_back_arrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="@string/imageview" />
+
+        <ImageView
+            android:id="@+id/img_register_ilustration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_back_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/register_logo"
+            android:contentDescription="@string/imageview" />
+
+        <TextView
+            android:id="@+id/tv_register_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_register_ilustration"
+            android:layout_marginTop="10dp"
+            android:text="@string/daftar_sekarang"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_register_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_register_headline"
+            android:layout_marginTop="10dp"
+            android:text="@string/register_description"
+            android:textSize="16sp"
+            android:textColor="#535353"
+            />
+
+        <com.dicoding.temantani.ui.register.EdRegisterCustom
+            android:id="@+id/ed_nama"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_register_description"
+            tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+
+        <com.dicoding.temantani.ui.register.EdRegisterCustom
+            android:id="@+id/ed_email"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_nama"
+            tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+
+        <com.dicoding.temantani.ui.register.EdRegisterCustom
+            android:id="@+id/ed_telephone"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_email"
+            tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+
+        <com.dicoding.temantani.ui.register.EdRegisterCustom
+            android:id="@+id/ed_password"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            android:textColorHint="#2E7D32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_telephone"
+            tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_green"
+            android:text="@string/register_now"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
