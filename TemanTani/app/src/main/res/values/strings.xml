@@ -16,4 +16,8 @@
     <string name="harga">5000</string>
     <string name="kg">/Kg</string>
     <string name="pesan">Pesan</string>
+    <string name="teman_tani">Teman Tani</string>
+    <string name="tanaman">Tanaman</string>
+    <string name="alat_tani">Alat Tani</string>
+    <string name="all_product">All Product</string>
 </resources>

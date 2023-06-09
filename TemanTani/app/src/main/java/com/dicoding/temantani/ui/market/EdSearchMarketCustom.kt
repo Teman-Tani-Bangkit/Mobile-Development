@@ -1,4 +1,4 @@
-package com.dicoding.temantani.ui.register
+package com.dicoding.temantani.ui.market
 
 import android.content.Context
 import android.graphics.Canvas
@@ -9,10 +9,10 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.dicoding.temantani.R
 
-class EdRegisterCustom : AppCompatEditText {
+class EdSearchMarketCustom : AppCompatEditText {
 
-    private lateinit var iconPerson: Drawable
-    private lateinit var bgEdText: Drawable
+    private lateinit var iconSearch : Drawable
+    private lateinit var bgSearchBar : Drawable
 
     constructor(context: Context) : super(context) {
         init()
@@ -30,23 +30,12 @@ class EdRegisterCustom : AppCompatEditText {
         init()
     }
 
-    private fun init() {
+    private fun init(){
+        bgSearchBar = ContextCompat.getDrawable(context, R.drawable.bg_search_bar_market) as Drawable
+        iconSearch = ContextCompat.getDrawable(context, R.drawable.ic_search_black) as Drawable
 
-        iconPerson = when(id){
-            R.id.ed_nama -> ContextCompat.getDrawable(context, R.drawable.ic_person_green) as Drawable
+        setButtonDrawables(endOfTheText = iconSearch)
 
-            R.id.ed_email -> ContextCompat.getDrawable(context, R.drawable.ic_mail_green) as Drawable
-
-            R.id.ed_telephone -> ContextCompat.getDrawable(context, R.drawable.ic_phone_green) as Drawable
-
-            R.id.ed_password -> ContextCompat.getDrawable(context, R.drawable.ic_lock_green) as Drawable
-
-            else -> bgEdText
-        }
-
-        bgEdText = ContextCompat.getDrawable(context, R.drawable.bg_ed_text_custom) as Drawable
-
-        setButtonDrawables(startOfTheText = iconPerson)
     }
 
     private fun setButtonDrawables(
@@ -65,21 +54,8 @@ class EdRegisterCustom : AppCompatEditText {
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        background = bgEdText
-
-        hint = when(id){
-            R.id.ed_nama -> "Nama"
-
-            R.id.ed_email -> "Email"
-
-            R.id.ed_telephone -> "No.Telepon"
-
-            R.id.ed_password -> "Password"
-
-            else -> ""
-        }
-
-        textSize = 14f
+        background = bgSearchBar
+        hint = "Search Product"
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
 
