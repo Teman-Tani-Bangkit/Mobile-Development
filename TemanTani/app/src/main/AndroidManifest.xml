@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TemanTani"
         tools:targetApi="31">
         <activity
+            android:name=".ui.market.MarketActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="false" />
         <activity
