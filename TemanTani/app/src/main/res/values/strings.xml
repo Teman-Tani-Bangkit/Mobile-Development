@@ -32,4 +32,7 @@
     <string name="jagung">Jagung</string>
     <string name="deteksi_tanamanmu">Deteksi Tanamanmu</string>
     <string name="upload_produk">Upload Produk</string>
+    <string name="kategori_barang">Kategori Barang</string>
+    <string name="deskripsi_produk">Deskripsi Produk</string>
+    <string name="tambah_barangmu">Tambah Barangmu</string>
 </resources>

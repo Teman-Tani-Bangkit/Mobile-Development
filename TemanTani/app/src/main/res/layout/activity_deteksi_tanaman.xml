@@ -116,6 +116,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/btn_green"
         android:text="@string/deteksi_tanamanmu"
+        android:textColor="@color/white"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

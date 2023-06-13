@@ -1,67 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="#33E5E5E5"
+    android:fillViewport="true"
     tools:context=".ui.upload.UploadProductActivity">
 
-    <ImageView
-        android:id="@+id/icon_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:contentDescription="@string/imageview"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/judul_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/upload_produk"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    
-    <ImageView
-        android:id="@+id/img_upload"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/bg_border"
-        android:src="@drawable/ic_upload_green"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/judul_upload"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/imageview" />
+        android:layout_height="wrap_content">
 
-    <com.dicoding.temantani.ui.upload.EdUploadCustom
-        android:id="@+id/ed_nama_barang"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:drawablePadding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_upload"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="25dp"
-        android:inputType="text"
-        />
+        <ImageView
+            android:id="@+id/icon_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/imageview"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.dicoding.temantani.ui.upload.EdUploadCustom
-        android:id="@+id/ed_harga_barang"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:drawablePadding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ed_nama_barang"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="15dp"
-        android:inputType="text"
-        />
-    
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/judul_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_produk"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_upload"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_border"
+            android:contentDescription="@string/imageview"
+            android:src="@drawable/ic_upload_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/judul_upload"
+            tools:ignore="ImageContrastCheck" />
+
+        <com.dicoding.temantani.ui.upload.EdUploadCustom
+            android:id="@+id/ed_nama_barang"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:drawablePadding="10dp"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_upload"
+            tools:ignore="TextContrastCheck" />
+
+        <com.dicoding.temantani.ui.upload.EdUploadCustom
+            android:id="@+id/ed_harga_barang"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:drawablePadding="10dp"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_nama_barang"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/text_kategori_barang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/ed_harga_barang"
+            app:layout_constraintTop_toBottomOf="@id/ed_harga_barang"
+            android:text="@string/kategori_barang"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="4dp"
+            />
+
+        <RadioGroup
+            android:id="@+id/radioKategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/text_kategori_barang"
+            app:layout_constraintTop_toBottomOf="@id/text_kategori_barang"
+            >
+
+            <RadioButton
+                android:id="@+id/radioButtonTanaman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tanaman"
+                android:layout_marginEnd="10dp"
+                />
+
+            <RadioButton
+                android:id="@+id/radioButtonAlatTani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alat_tani" />
+
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_layout"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioKategori"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:background="@drawable/bg_border_solid"
+                android:gravity="top|start"
+                android:textColor="@color/black"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:hint="@string/deskripsi_produk"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_deteksi"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            app:layout_constraintStart_toStartOf="@id/edt_layout"
+            app:layout_constraintTop_toBottomOf="@id/edt_layout"
+            app:layout_constraintEnd_toEndOf="@id/edt_layout"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_green"
+            android:text="@string/tambah_barangmu"
+            android:textColor="@color/white"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
