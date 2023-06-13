@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#33E5E5E5"
+    tools:context=".ui.upload.UploadProductActivity">
+
+    <ImageView
+        android:id="@+id/icon_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/judul_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_produk"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <ImageView
+        android:id="@+id/img_upload"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/bg_border"
+        android:src="@drawable/ic_upload_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/judul_upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/imageview" />
+
+    <com.dicoding.temantani.ui.upload.EdUploadCustom
+        android:id="@+id/ed_nama_barang"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:drawablePadding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        android:inputType="text"
+        />
+
+    <com.dicoding.temantani.ui.upload.EdUploadCustom
+        android:id="@+id/ed_harga_barang"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:drawablePadding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ed_nama_barang"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

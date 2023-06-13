@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33E5E5E5"
+    android:padding="16dp"
+    tools:context=".ui.deteksi.DeteksiTanamanActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/batasTengah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/icon_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/judul_deteksi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deteksi_tanaman"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_deteksi"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/deteksi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/judul_deteksi" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/from_camera"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/batasTengah"
+        app:layout_constraintTop_toBottomOf="@id/img_deteksi"
+        android:layout_marginTop="30dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="20dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/imageview"
+                android:src="@drawable/ic_add_photo_green"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/from_gallery"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintStart_toEndOf="@id/batasTengah"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_deteksi"
+        android:layout_marginTop="30dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="20dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/imageview"
+                android:src="@drawable/ic_add_gallery_green"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_deteksi"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/from_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_green"
+        android:text="@string/deteksi_tanamanmu"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

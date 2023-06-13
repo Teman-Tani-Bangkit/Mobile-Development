@@ -83,7 +83,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/profile_account"
         app:layout_constraintTop_toTopOf="@id/profile_account"
-        app:layout_constraintBottom_toBottomOf=""
         android:layout_marginStart="8dp"
         android:text="@string/henzi_juandri"
         android:textColor="@color/white"

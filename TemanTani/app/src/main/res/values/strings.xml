@@ -22,4 +22,14 @@
     <string name="all_product">All Product</string>
     <string name="henzi_juandri">Henzi Juandri</string>
     <string name="henzijuandri_icloud_com">henzijuandri@icloud.com</string>
+    <string name="deteksi_tanaman">Deteksi Tanaman</string>
+    <string name="pilih_tanaman">Pilih Tanaman</string>
+    <string name="padi">Padi</string>
+    <string name="singkong">Singkong</string>
+    <string name="kentang">Kentang</string>
+    <string name="tomat">Tomat</string>
+    <string name="cabai">Cabai</string>
+    <string name="jagung">Jagung</string>
+    <string name="deteksi_tanamanmu">Deteksi Tanamanmu</string>
+    <string name="upload_produk">Upload Produk</string>
 </resources>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#33E5E5E5"
+    >
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="632dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/batasKiri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="22dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/batasKanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="22dp" />
+
+    <ImageView
+        android:id="@+id/icon_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/judul_deteksi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deteksi_tanaman"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_pilih_tanaman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/batasKiri"
+        app:layout_constraintTop_toBottomOf="@id/guideline1"
+        android:text="@string/pilih_tanaman"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/padi"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/padi"
+        app:layout_constraintStart_toStartOf="@id/batasKiri"
+        app:layout_constraintTop_toBottomOf="@id/text_pilih_tanaman"
+        />
+
+    <TextView
+        android:id="@+id/text_padi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/padi"
+        app:layout_constraintEnd_toEndOf="@id/padi"
+        app:layout_constraintTop_toBottomOf="@id/padi"
+        android:layout_marginTop="4dp"
+        android:text="@string/padi"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/singkong"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/ubi"
+        app:layout_constraintStart_toEndOf="@id/padi"
+        app:layout_constraintTop_toTopOf="@id/padi"
+        app:layout_constraintEnd_toStartOf="@id/kentang"
+        />
+
+    <TextView
+        android:id="@+id/text_singkong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/singkong"
+        app:layout_constraintEnd_toEndOf="@id/singkong"
+        app:layout_constraintTop_toBottomOf="@id/singkong"
+        android:layout_marginTop="4dp"
+        android:text="@string/singkong"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/kentang"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/kentang"
+        app:layout_constraintEnd_toStartOf="@id/batasKanan"
+        app:layout_constraintTop_toTopOf="@id/padi"
+        />
+
+    <TextView
+        android:id="@+id/text_kentang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/kentang"
+        app:layout_constraintEnd_toEndOf="@id/kentang"
+        app:layout_constraintTop_toBottomOf="@id/kentang"
+        android:layout_marginTop="4dp"
+        android:text="@string/kentang"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/tomat"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/tomat"
+        app:layout_constraintStart_toStartOf="@id/batasKiri"
+        app:layout_constraintTop_toBottomOf="@id/text_padi"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:id="@+id/text_tomat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tomat"
+        app:layout_constraintEnd_toEndOf="@id/tomat"
+        app:layout_constraintTop_toBottomOf="@id/tomat"
+        android:layout_marginTop="4dp"
+        android:text="@string/tomat"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/cabai"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/cabai"
+        app:layout_constraintEnd_toStartOf="@id/batasKanan"
+        app:layout_constraintTop_toTopOf="@id/tomat"
+        />
+
+    <TextView
+        android:id="@+id/text_cabai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/cabai"
+        app:layout_constraintEnd_toEndOf="@id/cabai"
+        app:layout_constraintTop_toBottomOf="@id/cabai"
+        android:layout_marginTop="4dp"
+        android:text="@string/cabai"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/jagung"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/imageview"
+        android:src="@drawable/jagung"
+        app:layout_constraintStart_toEndOf="@id/tomat"
+        app:layout_constraintTop_toTopOf="@id/tomat"
+        app:layout_constraintEnd_toStartOf="@id/cabai"
+        />
+
+    <TextView
+        android:id="@+id/text_jagung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/jagung"
+        app:layout_constraintEnd_toEndOf="@id/jagung"
+        app:layout_constraintTop_toBottomOf="@id/jagung"
+        android:layout_marginTop="4dp"
+        android:text="@string/jagung"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
