@@ -91,7 +91,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="30dp"
             android:background="@drawable/btn_green"
-            android:text="@string/register_now"
+            android:text="@string/login_now"
+            android:textColor="@color/white"
             />
 
         <LinearLayout
@@ -124,6 +125,17 @@
 
         </LinearLayout>
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

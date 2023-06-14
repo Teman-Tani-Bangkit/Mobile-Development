@@ -35,4 +35,5 @@
     <string name="kategori_barang">Kategori Barang</string>
     <string name="deskripsi_produk">Deskripsi Produk</string>
     <string name="tambah_barangmu">Tambah Barangmu</string>
+    <string name="login_now">Login Now</string>
 </resources>
