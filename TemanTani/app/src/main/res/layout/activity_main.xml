@@ -297,6 +297,49 @@
             android:textColor="@color/green_primary"
             />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_tanaman"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/tv_judul_tanaman"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_judul_alat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/rv_home_tanaman"
+            android:layout_marginTop="20dp"
+            android:text="@string/alat_tani"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_text_seeMore_alat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_judul_alat"
+            app:layout_constraintBottom_toBottomOf="@id/tv_judul_alat"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            android:text="@string/lihat_semua"
+            android:textSize="14sp"
+            android:textColor="@color/green_primary"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home_alat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/tv_judul_alat"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

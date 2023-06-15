@@ -17,7 +17,7 @@ class ApiConfig {
                 .build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://temantani-backend-xmyrxrwica-et.a.run.app")
+                .baseUrl("https://be-temantani-xmyrxrwica-et.a.run.app")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

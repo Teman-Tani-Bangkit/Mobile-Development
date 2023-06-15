@@ -96,15 +96,16 @@
                 android:id="@+id/radioButtonTanaman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tanaman"
                 android:layout_marginEnd="10dp"
-                />
+                android:text="@string/tanaman"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
                 android:id="@+id/radioButtonAlatTani"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/alat_tani" />
+                android:text="@string/alat_tani"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </RadioGroup>
 

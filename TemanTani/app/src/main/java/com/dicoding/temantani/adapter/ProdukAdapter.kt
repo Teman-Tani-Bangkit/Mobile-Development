@@ -15,11 +15,6 @@ class ProdukAdapter(private val allProduk : List<Produk>) : RecyclerView.Adapter
         val produkImage : ImageView = binding.imageItem
         val produkName : TextView = binding.namaItem
         val produkPrice : TextView = binding.textPrice
-//        val storyImage : ImageView = binding.storyImage
-//        val userName : TextView = binding.userStoryName
-//        val createdDate : TextView = binding.userStoryCreated
-//        val readMore : ImageView = binding.btnReadMore
-//        val cardView : CardView = binding.cardView
     }
 
     override fun getItemCount(): Int = allProduk.size
@@ -33,7 +28,7 @@ class ProdukAdapter(private val allProduk : List<Produk>) : RecyclerView.Adapter
         val(img, nama, harga) = allProduk[position]
 
         Glide.with(holder.itemView)
-            .load("https://storage.googleapis.com/ml-temantani/potato-early-blight-lesions.jpeg")
+            .load("https://storage.googleapis.com/temantani-bucket/barang/$img")
             .into(holder.produkImage)
 
         holder.produkName.text = nama

@@ -19,9 +19,9 @@ interface ApiService {
         @Header("key") authToken: String
     ): Call<ProdukResponse>
 
-    @GET("/tampilkanKategori")
+    @GET("/tampilkanKategori/{kategori}")
     fun getProdukByKategori(
-        @Query("kategori") kategori: String,
+        @Path("kategori") kategori: String,
         @Header("key") authToken: String
     ): Call<ProdukResponse>
 
