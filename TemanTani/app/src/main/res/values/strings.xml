@@ -36,4 +36,6 @@
     <string name="deskripsi_produk">Deskripsi Produk</string>
     <string name="tambah_barangmu">Tambah Barangmu</string>
     <string name="login_now">Login Now</string>
+    <string name="text_to_deteksi">Periksa penyakit tanamanmu!</string>
+    <string name="text_to_rekomendasi">Cek rekomendasi tanaman!</string>
 </resources>

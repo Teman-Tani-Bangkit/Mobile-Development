@@ -1,18 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#33E5E5E5"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasCokelat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKiri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasTengah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#9F8772"
+            app:layout_constraintBottom_toTopOf="@id/batasCokelat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/batasCokelat"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:text="@string/teman_tani"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/imageview"
+            android:src="@drawable/ic_person_white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/batasCokelat"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_to_rekomendasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/batasCokelat"
+            android:text="@string/text_to_rekomendasi"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/img_to_rekomendasi"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/to_rekomendasi"
+            android:contentDescription="@string/imageview"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/tv_to_rekomendasi"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/tv_to_deteksi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/img_to_rekomendasi"
+            android:layout_marginTop="20dp"
+            android:text="@string/text_to_deteksi"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+        
+        <HorizontalScrollView
+            android:id="@+id/container_kategori_deteksi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/tv_to_deteksi"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/padi"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/imageview"
+                    android:src="@drawable/padi"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/text_padi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/padi"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_below="@id/padi"
+                    android:layout_alignStart="@id/padi"
+                    android:layout_alignEnd="@id/padi"/>
+
+                <ImageView
+                    android:id="@+id/singkong"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/imageview"
+                    android:src="@drawable/ubi"
+                    android:layout_toEndOf="@id/padi"
+                    android:layout_marginStart="16dp"
+                    />
+
+                <TextView
+                    android:id="@+id/text_singkong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/singkong"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_below="@id/singkong"
+                    android:layout_alignStart="@id/singkong"
+                    android:layout_alignEnd="@id/singkong"/>
+
+                <ImageView
+                    android:id="@+id/kentang"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/singkong"
+                    android:contentDescription="@string/imageview"
+                    android:src="@drawable/kentang"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/text_kentang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kentang"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_below="@id/kentang"
+                    android:layout_alignStart="@id/kentang"
+                    android:layout_alignEnd="@id/kentang"/>
+
+                <ImageView
+                    android:id="@+id/tomat"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/kentang"
+                    android:contentDescription="@string/imageview"
+                    android:src="@drawable/tomat"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/text_tomat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tomat"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_below="@id/tomat"
+                    android:layout_alignStart="@id/tomat"
+                    android:layout_alignEnd="@id/tomat"/>
+
+                <ImageView
+                    android:id="@+id/jagung"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/tomat"
+                    android:contentDescription="@string/imageview"
+                    android:src="@drawable/jagung"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:id="@+id/text_jagung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/jagung"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_below="@id/jagung"
+                    android:layout_alignStart="@id/jagung"
+                    android:layout_alignEnd="@id/jagung"/>
+
+                <ImageView
+                    android:id="@+id/cabai"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/imageview"
+                    android:src="@drawable/cabai"
+                    android:layout_toEndOf="@id/jagung"
+                    android:layout_marginStart="16dp"
+                    />
+
+                <TextView
+                    android:id="@+id/text_cabai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cabai"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_below="@id/cabai"
+                    android:layout_alignStart="@id/cabai"
+                    android:layout_alignEnd="@id/cabai"/>
+
+            </RelativeLayout>
+
+        </HorizontalScrollView>
+
+        <ImageView
+            android:id="@+id/img_to_deteksi"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/to_deteksi"
+            android:contentDescription="@string/imageview"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/container_kategori_deteksi"
+            tools:ignore="ImageContrastCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
