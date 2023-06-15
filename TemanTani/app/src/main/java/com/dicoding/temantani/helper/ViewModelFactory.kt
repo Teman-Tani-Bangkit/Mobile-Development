@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.temantani.models.LoginViewModel
 import com.dicoding.temantani.models.ProdukViewModel
 import com.dicoding.temantani.models.RegisterViewModel
+import com.dicoding.temantani.models.UploadViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
 
@@ -18,6 +19,8 @@ class ViewModelFactory private constructor(private val mApplication: Application
             return RegisterViewModel(mApplication) as T
         }else if(modelClass.isAssignableFrom(ProdukViewModel::class.java)){
             return ProdukViewModel(mApplication) as T
+        }else if(modelClass.isAssignableFrom(UploadViewModel::class.java)){
+            return UploadViewModel(mApplication) as T
         }
 
         throw IllegalArgumentException("Unknown View Model Class : ${modelClass.name}")

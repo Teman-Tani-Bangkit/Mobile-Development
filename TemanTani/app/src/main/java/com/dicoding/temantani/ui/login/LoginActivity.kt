@@ -9,13 +9,17 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.temantani.MainActivity
 import com.dicoding.temantani.R
 import com.dicoding.temantani.databinding.ActivityLoginBinding
+import com.dicoding.temantani.db.UserAuth
+import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.LoginViewModel
 import com.dicoding.temantani.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity(){
+    private lateinit var userAuth : UserAuth
 
     private lateinit var loginViewModel : LoginViewModel
 
@@ -27,23 +31,68 @@ class LoginActivity : AppCompatActivity(){
         _activityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        // Proses Pembuatan Login View Model
-        loginViewModel = obtainViewModel(this@LoginActivity)
+        userAuth()
+        if(userAuth.token?.isNotEmpty() == true){
+            moveToHome()
+            finishAffinity()
+        } else {
+            // Proses Pembuatan Login View Model
+            loginViewModel = obtainViewModel(this@LoginActivity)
 
-        loginViewModel.isLoading.observe(this){ showLoading(it) }
+            loginViewModel.isLoading.observe(this){ showLoading(it) }
 
-        loginViewModel.responseMessage.observe(this){
-            it.getContentIfNotHandled()?.let { message ->
-                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            loginViewModel.responseMessage.observe(this){
+                it.getContentIfNotHandled()?.let { message ->
+                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            loginViewModel.loginResponse.observe(this){response ->
+                if(response.status == "success"){
+                    val userName = response.data?.nama.toString()
+                    val userId = response.data?.userid.toString()
+                    val userToken = response.data?.token.toString()
+
+                    saveUserAuth(userName,userId, userToken)
+                    moveToHome()
+                }
+            }
+
+            setupView()
+
+            binding?.apply {
+                btnLogin.setOnClickListener { userLogin() }
+                tvToRegister.setOnClickListener { moveToRegister() }
             }
         }
+    }
 
-        setupView()
+    private fun userLogOut(){
+        val userPref = UserPreference(this)
+        userPref.userLogout()
+    }
 
-        binding?.apply {
-            btnLogin.setOnClickListener { userLogin() }
-            tvToRegister.setOnClickListener { moveToRegister() }
-        }
+    private fun saveUserAuth(name : String, id : String, token : String){
+        val userPreference = UserPreference(this)
+        val userDataResponse = UserAuth()
+
+        userDataResponse.name = name
+        userDataResponse.id = id
+        userDataResponse.token = token
+
+        userAuth = userDataResponse
+
+        userPreference.setUserLogin(userAuth)
+    }
+
+    private fun userAuth(){
+        val userPref = UserPreference(this)
+        userAuth = userPref.getUser()
+    }
+
+    private fun moveToHome(){
+        val intentToHome = Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intentToHome)
     }
 
     private fun warnEmptyEd(email : String, password : String){

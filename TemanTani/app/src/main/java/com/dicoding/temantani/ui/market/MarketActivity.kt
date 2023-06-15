@@ -2,6 +2,7 @@ package com.dicoding.temantani.ui.market
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -12,10 +13,14 @@ import com.dicoding.temantani.adapter.Produk
 import com.dicoding.temantani.adapter.ProdukAdapter
 import com.dicoding.temantani.api_settings.response.DataItem
 import com.dicoding.temantani.databinding.ActivityMarketBinding
+import com.dicoding.temantani.db.UserAuth
+import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.ProdukViewModel
+import java.io.File
 
 class MarketActivity : AppCompatActivity() {
+    private lateinit var userAuth : UserAuth
 
     private lateinit var produkViewModel: ProdukViewModel
 
@@ -27,6 +32,9 @@ class MarketActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _activityMarketBinding = ActivityMarketBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        userAuth()
+        TOKEN = userAuth.token.toString()
 
         // Pembuatan RecylerView
         val layoutManager = GridLayoutManager(this, 2)
@@ -45,8 +53,8 @@ class MarketActivity : AppCompatActivity() {
 
         setupView()
         binding?.apply {
-            kategoriTanaman.setOnClickListener { produkViewModel.fetchProdukByKategori("1") }
-            kategoriAlat.setOnClickListener { produkViewModel.fetchProdukByKategori("2") }
+            kategoriTanaman.setOnClickListener { produkViewModel.fetchProdukByKategori("1", TOKEN!!) }
+            kategoriAlat.setOnClickListener { produkViewModel.fetchProdukByKategori("2", TOKEN!!) }
         }
     }
 
@@ -71,8 +79,12 @@ class MarketActivity : AppCompatActivity() {
 
             listCard.add(cardProduk)
         }
-
         return listCard
+    }
+
+    private fun userAuth(){
+        val userPref = UserPreference(this)
+        userAuth = userPref.getUser()
     }
 
     private fun obtainViewModel(activity: AppCompatActivity) : ProdukViewModel {
@@ -94,4 +106,8 @@ class MarketActivity : AppCompatActivity() {
     }
 
     private fun showLoading(state: Boolean) { binding?.progressBar?.visibility = if (state) View.VISIBLE else View.GONE }
+
+    companion object{
+        var TOKEN : String ?= null
+    }
 }

@@ -5,8 +5,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dicoding.temantani.MainActivity
 import com.dicoding.temantani.api_settings.ApiConfig
 import com.dicoding.temantani.api_settings.response.ProdukResponse
+import com.dicoding.temantani.ui.market.MarketActivity
 import retrofit2.Call
 import retrofit2.Response
 
@@ -24,16 +26,18 @@ class ProdukViewModel(application: Application) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean> = _isLoading
 
+
     init {
-        fetchProduk()
-        fetchHomeTanaman()
-        fetchHomeAlatTani()
+        MarketActivity.TOKEN?.let { fetchProduk(it) }
+
+        MainActivity.TOKEN?.let { fetchHomeTanaman(it) }
+        MainActivity.TOKEN?.let { fetchHomeAlatTani(it) }
     }
 
-    fun fetchHomeTanaman(){
+    fun fetchHomeTanaman(authToken : String){
         _isLoading.value = true
 
-        val client = ApiConfig.getApiService().getProdukByKategori("1", "eyJhbGciOiJIUzI1NiJ9.Mw.72MlEAZJWe2NIdb6jRgrrxl9qdQ83xR3Up1SA3MJq14")
+        val client = ApiConfig.getApiService().getProdukByKategori("1", authToken)
 
         client.enqueue(object : retrofit2.Callback<ProdukResponse>{
             override fun onResponse(
@@ -59,10 +63,10 @@ class ProdukViewModel(application: Application) : ViewModel() {
         })
     }
 
-    fun fetchHomeAlatTani(){
+    fun fetchHomeAlatTani(authToken: String){
         _isLoading.value = true
 
-        val client = ApiConfig.getApiService().getProdukByKategori("2", "eyJhbGciOiJIUzI1NiJ9.Mw.72MlEAZJWe2NIdb6jRgrrxl9qdQ83xR3Up1SA3MJq14")
+        val client = ApiConfig.getApiService().getProdukByKategori("2", authToken)
 
         client.enqueue(object : retrofit2.Callback<ProdukResponse>{
             override fun onResponse(
@@ -88,10 +92,10 @@ class ProdukViewModel(application: Application) : ViewModel() {
         })
     }
 
-    fun fetchProdukByKategori(kategori : String){
+    fun fetchProdukByKategori(kategori : String, authToken: String){
         _isLoading.value = true
 
-        val client = ApiConfig.getApiService().getProdukByKategori(kategori, "eyJhbGciOiJIUzI1NiJ9.Mw.72MlEAZJWe2NIdb6jRgrrxl9qdQ83xR3Up1SA3MJq14")
+        val client = ApiConfig.getApiService().getProdukByKategori(kategori, authToken)
 
         client.enqueue(object : retrofit2.Callback<ProdukResponse>{
             override fun onResponse(
@@ -117,11 +121,9 @@ class ProdukViewModel(application: Application) : ViewModel() {
         })
     }
 
-    fun fetchProduk(){
+    fun fetchProduk(authToken: String){
         _isLoading.value = true
-
-        val client = ApiConfig.getApiService().getProduk("eyJhbGciOiJIUzI1NiJ9.Mw.72MlEAZJWe2NIdb6jRgrrxl9qdQ83xR3Up1SA3MJq14")
-
+        val client = ApiConfig.getApiService().getProdukByKategori("1", authToken)
         client.enqueue(object : retrofit2.Callback<ProdukResponse>{
             override fun onResponse(
                 call: Call<ProdukResponse>,

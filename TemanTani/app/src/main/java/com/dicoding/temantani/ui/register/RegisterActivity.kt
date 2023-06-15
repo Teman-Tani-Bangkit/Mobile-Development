@@ -14,6 +14,7 @@ import com.dicoding.temantani.databinding.ActivityRegisterBinding
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.LoginViewModel
 import com.dicoding.temantani.models.RegisterViewModel
+import com.dicoding.temantani.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var registerViewModel : RegisterViewModel
@@ -41,6 +42,7 @@ class RegisterActivity : AppCompatActivity() {
         setupView()
         binding?.apply {
             btnRegister.setOnClickListener { userRegister() }
+            imgBackArrow.setOnClickListener { moveToLogin() }
         }
     }
 
@@ -56,6 +58,10 @@ class RegisterActivity : AppCompatActivity() {
         } else if(edNamaText.isNotEmpty() && edEmailText.isNotEmpty() && edPasswordText.isNotEmpty() && edPhoneText.isNotEmpty()){
             registerViewModel.postRegisterUser(edEmailText, edPasswordText, edPhoneText, edNamaText)
         }
+    }
+
+    private fun moveToLogin(){
+        onBackPressedDispatcher.onBackPressed()
     }
 
     private fun warnEmptyEd(name : String, email : String, phone : String, password : String){

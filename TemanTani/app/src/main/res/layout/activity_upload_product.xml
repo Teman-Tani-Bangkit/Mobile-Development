@@ -39,6 +39,7 @@
             android:layout_height="250dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_border"
+            android:scaleType="fitXY"
             android:contentDescription="@string/imageview"
             android:src="@drawable/ic_upload_green"
             app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +135,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_deteksi"
+            android:id="@+id/btn_upload"
             android:layout_width="300dp"
             android:layout_height="55dp"
             app:layout_constraintStart_toStartOf="@id/edt_layout"
@@ -145,6 +146,18 @@
             android:text="@string/tambah_barangmu"
             android:textColor="@color/white"
             />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

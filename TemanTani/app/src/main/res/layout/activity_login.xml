@@ -16,20 +16,11 @@
         >
 
         <ImageView
-            android:id="@+id/img_back_arrow"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_arrow_back"
-            android:contentDescription="@string/imageview" />
-
-        <ImageView
             android:id="@+id/img_register_ilustration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_back_arrow"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/login_logo"
             android:contentDescription="@string/imageview" />
@@ -102,7 +93,7 @@
             app:layout_constraintStart_toStartOf="@+id/btn_login"
             app:layout_constraintTop_toBottomOf="@id/btn_login"
             app:layout_constraintEnd_toEndOf="@id/btn_login"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="18dp"
             >
 
             <TextView

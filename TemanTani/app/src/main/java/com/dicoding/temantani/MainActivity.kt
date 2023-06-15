@@ -1,5 +1,6 @@
 package com.dicoding.temantani
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,10 +12,14 @@ import com.dicoding.temantani.adapter.Produk
 import com.dicoding.temantani.adapter.ProdukAdapter
 import com.dicoding.temantani.api_settings.response.DataItem
 import com.dicoding.temantani.databinding.ActivityMainBinding
+import com.dicoding.temantani.db.UserAuth
+import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.ProdukViewModel
+import com.dicoding.temantani.ui.market.MarketActivity
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var userAuth : UserAuth
 
     private lateinit var produkViewModel: ProdukViewModel
 
@@ -27,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         _activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        userAuth()
+        TOKEN = userAuth.token.toString()
+
         // Pembuatan RecylerView
         val layoutManagerTanaman = GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false)
         val layoutManagerAlatTani = GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false)
@@ -37,12 +45,27 @@ class MainActivity : AppCompatActivity() {
         produkViewModel = obtainViewModel(this@MainActivity)
 
         produkViewModel.produkTanamanResponse.observe(this){response ->
-            setCardTanamanData(response.data.take(6))
+            setCardTanamanData(response.data.reversed().take(6))
         }
 
         produkViewModel.produkAlatTaniResponse.observe(this){response ->
-            setCardAlatTaniData(response.data.take(6 ))
+            setCardAlatTaniData(response.data.reversed().take(6))
         }
+
+        binding?.apply {
+            tvTextSeeMoreAlat.setOnClickListener { moveToMarket() }
+            tvTextSeeMoreTanaman.setOnClickListener { moveToMarket() }
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity()
+    }
+
+    private fun moveToMarket(){
+        val intentToMarket = Intent(this@MainActivity, MarketActivity::class.java)
+        startActivity(intentToMarket)
     }
 
     private fun setCardAlatTaniData(produkResponse: List<DataItem>){
@@ -78,6 +101,11 @@ class MainActivity : AppCompatActivity() {
         return listCard
     }
 
+    private fun userAuth(){
+        val userPref = UserPreference(this)
+        userAuth = userPref.getUser()
+    }
+
     private fun obtainViewModel(activity: AppCompatActivity) : ProdukViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
         return ViewModelProvider(activity, factory).get(ProdukViewModel::class.java)
@@ -94,5 +122,9 @@ class MainActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+    }
+
+    companion object{
+        var TOKEN : String ?= null
     }
 }
