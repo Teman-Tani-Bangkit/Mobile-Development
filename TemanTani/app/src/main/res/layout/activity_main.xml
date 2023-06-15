@@ -80,6 +80,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/batasKiri"
             app:layout_constraintTop_toBottomOf="@id/batasCokelat"
+            android:layout_marginTop="10dp"
             android:text="@string/text_to_rekomendasi"
             android:textSize="20sp"
             android:textColor="@color/black"
@@ -270,6 +271,31 @@
             app:layout_constraintStart_toStartOf="@id/batasKiri"
             app:layout_constraintTop_toBottomOf="@id/container_kategori_deteksi"
             tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/tv_judul_tanaman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/img_to_deteksi"
+            android:layout_marginTop="20dp"
+            android:text="@string/tanaman"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_text_seeMore_tanaman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_judul_tanaman"
+            app:layout_constraintBottom_toBottomOf="@id/tv_judul_tanaman"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            android:text="@string/lihat_semua"
+            android:textSize="14sp"
+            android:textColor="@color/green_primary"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
