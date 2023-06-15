@@ -36,7 +36,7 @@ class MarketActivity : AppCompatActivity() {
         produkViewModel = obtainViewModel(this@MarketActivity)
 
         produkViewModel.produkResponse.observe(this){response ->
-            setCardProdukData(response.data)
+            setCardProdukData(response.data.reversed())
         }
 
         produkViewModel.isLoading.observe(this){
