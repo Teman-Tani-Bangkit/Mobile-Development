@@ -1,6 +1,25 @@
 # Teman-Tani
 Mobile Development repository for Teman Tani. The Mobile Development part is to provide the app design, translate the design into code, and also implement the app’s logic and connect it to API. All of the development of the mobile application is in Android Studio.
 
+## Requirement
+* Android Studio Flamingo
+* Emulator / External Device
+* Gradle 8.0
+* Java JDK
+
+## Installation
+
+### 1. Clone the Project to your Computer
+bash
+git clone https://github.com/Teman-Tani-Bangkit/Mobile-Development.git
+
+
+### 2. Open the Project in Android Studio
+Open Android Studio and select "Open an Existing Project." Navigate to the cloned project directory and select it.
+
+### 3. Run the Project in Android Studio
+Wait for the Gradle build to finish, and then click on "Run" and choose "Run 'app'". This will install the app on your Android device or emulator. Make sure you have correctly configured your Android device or emulator.
+
 # Interface
 * Login & Register
 <img src="https://github.com/Teman-Tani-Bangkit/Mobile-Development/assets/89207690/e5b4cea8-6995-45ce-9948-b79f19090beb" width="300" alt="Login Screenshot">
