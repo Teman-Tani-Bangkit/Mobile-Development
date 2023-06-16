@@ -17,6 +17,7 @@ import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.ProdukViewModel
 import com.dicoding.temantani.ui.market.MarketActivity
+import com.dicoding.temantani.ui.profile.ProfileActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var userAuth : UserAuth
@@ -55,12 +56,18 @@ class MainActivity : AppCompatActivity() {
         binding?.apply {
             tvTextSeeMoreAlat.setOnClickListener { moveToMarket() }
             tvTextSeeMoreTanaman.setOnClickListener { moveToMarket() }
+            imgProfile.setOnClickListener { moveToProfile() }
         }
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         finishAffinity()
+    }
+
+    private fun moveToProfile(){
+        val intentToProfile = Intent(this@MainActivity, ProfileActivity::class.java)
+        startActivity(intentToProfile)
     }
 
     private fun moveToMarket(){

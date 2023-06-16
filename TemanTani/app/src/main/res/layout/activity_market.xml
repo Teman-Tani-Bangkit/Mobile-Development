@@ -58,6 +58,7 @@
         app:layout_constraintVertical_bias="0.35" />
 
     <ImageView
+        android:id="@+id/img_profile"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="@string/imageview"
@@ -67,17 +68,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35" />
 
-    <com.dicoding.temantani.ui.market.EdSearchMarketCustom
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:inputType="text"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_search_bar_market"
+        app:iconifiedByDefault="false"
         app:layout_constraintBottom_toBottomOf="@id/batasCokelat"
         app:layout_constraintEnd_toEndOf="@id/batasKanan"
         app:layout_constraintStart_toStartOf="@id/batasKiri"
         app:layout_constraintTop_toTopOf="@id/batasCokelat"
-        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+        app:queryHint="Search Product" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/kategori_tanaman"
@@ -151,11 +152,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProduk"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/batasKanan"
+        app:layout_constraintStart_toStartOf="@id/batasKiri"
         app:layout_constraintTop_toBottomOf="@id/text_product" />
 
     <ProgressBar

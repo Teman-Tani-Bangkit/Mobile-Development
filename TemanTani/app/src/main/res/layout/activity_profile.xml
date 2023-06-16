@@ -1,104 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ui.profile.ProfileActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/batasAtas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/batasCokelat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/batasKiri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/batasKanan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
-    <View
-        android:id="@+id/view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#9F8772"
-        app:layout_constraintBottom_toTopOf="@id/batasCokelat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/icon_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:contentDescription="@string/imageview"
-        android:src="@drawable/ic_arrow_white"
-        app:layout_constraintStart_toStartOf="@id/batasKiri"
-        app:layout_constraintTop_toTopOf="@id/batasAtas" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasAtas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="16dp" />
 
-    <com.dicoding.temantani.ui.profile.EdSearchProfileCustom
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="@id/icon_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/icon_back"
-        android:inputType="text"
-        tools:ignore="TextContrastCheck"
-        android:drawablePadding="10dp"
-        />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasCokelat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
 
-    <ImageView
-        android:id="@+id/profile_account"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintStart_toStartOf="@id/batasKiri"
-        app:layout_constraintBottom_toTopOf="@id/batasCokelat"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78"
-        android:background="@drawable/ic_person_white"
-        android:contentDescription="@string/henzi_juandri" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKiri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
 
-    <TextView
-        android:id="@+id/text_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/profile_account"
-        app:layout_constraintTop_toTopOf="@id/profile_account"
-        android:layout_marginStart="8dp"
-        android:text="@string/henzi_juandri"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
 
-    <TextView
-        android:id="@+id/text_useremail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/henzijuandri_icloud_com"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/profile_account"
-        app:layout_constraintStart_toStartOf="@id/text_username"
-        app:layout_constraintTop_toBottomOf="@id/text_username"
-        tools:ignore="TextContrastCheck" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasTengah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#9F8772"
+            app:layout_constraintBottom_toTopOf="@id/batasCokelat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/imageview"
+            android:src="@drawable/ic_arrow_white"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toTopOf="@id/batasAtas" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search_bar_profile"
+            app:iconifiedByDefault="false"
+            app:layout_constraintBottom_toBottomOf="@id/icon_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/icon_back"
+            app:queryHint="Search Product" />
+
+        <ImageView
+            android:id="@+id/profile_account"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintBottom_toTopOf="@id/batasCokelat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.78"
+            android:background="@drawable/ic_person_white"
+            android:contentDescription="@string/henzi_juandri" />
+
+        <TextView
+            android:id="@+id/text_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/profile_account"
+            app:layout_constraintTop_toTopOf="@id/profile_account"
+            android:layout_marginStart="8dp"
+            android:text="@string/henzi_juandri"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            />
+
+        <TextView
+            android:id="@+id/text_useremail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/henzijuandri_icloud_com"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/profile_account"
+            app:layout_constraintStart_toStartOf="@id/text_username"
+            app:layout_constraintTop_toBottomOf="@id/text_username"
+            tools:ignore="TextContrastCheck" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_tanaman"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintEnd_toStartOf="@id/batasTengah"
+            app:layout_constraintTop_toBottomOf="@id/batasCokelat"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/kategori_tanam"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/tanaman"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/kategori_alat"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            app:layout_constraintTop_toBottomOf="@id/batasCokelat"
+            app:layout_constraintStart_toEndOf="@id/batasTengah"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/kategori_alat"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/alat_tani"
+                    android:textColor="@color/white"
+                    />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/text_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/kategori_tanaman"
+            android:layout_marginTop="20dp"
+            android:text="@string/produk_mu"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProdukProfile"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintTop_toBottomOf="@id/text_product" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

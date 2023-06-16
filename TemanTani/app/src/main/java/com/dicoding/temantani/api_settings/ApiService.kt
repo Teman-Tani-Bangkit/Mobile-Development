@@ -1,7 +1,9 @@
 package com.dicoding.temantani.api_settings
 
+import com.dicoding.temantani.api_settings.response.DetailResponse
 import com.dicoding.temantani.api_settings.response.LoginResponse
 import com.dicoding.temantani.api_settings.response.ProdukResponse
+import com.dicoding.temantani.api_settings.response.ProfileResponse
 import com.dicoding.temantani.api_settings.response.RegisterResponse
 import com.dicoding.temantani.api_settings.response.UploadResponse
 import okhttp3.MultipartBody
@@ -18,6 +20,11 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
+    @GET("/tampilkanProduk")
+    fun searchProduk(
+        @Header("key") authToken: String,
+        @Query("namabarang") nama: String
+    ): Call<ProdukResponse>
 
     @GET("/tampilkanProduk")
     fun getProduk(
@@ -29,6 +36,18 @@ interface ApiService {
         @Path("kategori") kategori: String,
         @Header("key") authToken: String
     ): Call<ProdukResponse>
+
+    @GET("/userProfil/{userid}")
+    fun getDataProfile(
+        @Path("userid") userid: String,
+        @Header("key") authToken: String
+    ): Call<ProfileResponse>
+
+    @GET("/detailProduk/{idbarang}")
+    fun getDetailProduk(
+        @Path("idbarang") idbarang: String,
+        @Header("key") authToken: String
+    ): Call<DetailResponse>
 
     @FormUrlEncoded
     @POST("/login")

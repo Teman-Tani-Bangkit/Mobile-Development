@@ -39,4 +39,6 @@
     <string name="text_to_deteksi">Periksa penyakit tanamanmu!</string>
     <string name="text_to_rekomendasi">Cek rekomendasi tanaman!</string>
     <string name="lihat_semua">Lihat Semua</string>
+    <string name="pcs">/Pcs</string>
+    <string name="produk_mu">Produk Mu</string>
 </resources>

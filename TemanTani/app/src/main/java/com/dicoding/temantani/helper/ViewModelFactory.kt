@@ -3,8 +3,10 @@ package com.dicoding.temantani.helper
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.temantani.models.DetailViewModel
 import com.dicoding.temantani.models.LoginViewModel
 import com.dicoding.temantani.models.ProdukViewModel
+import com.dicoding.temantani.models.ProfileViewModel
 import com.dicoding.temantani.models.RegisterViewModel
 import com.dicoding.temantani.models.UploadViewModel
 
@@ -21,6 +23,10 @@ class ViewModelFactory private constructor(private val mApplication: Application
             return ProdukViewModel(mApplication) as T
         }else if(modelClass.isAssignableFrom(UploadViewModel::class.java)){
             return UploadViewModel(mApplication) as T
+        }else if(modelClass.isAssignableFrom(DetailViewModel::class.java)){
+            return DetailViewModel(mApplication) as T
+        }else if(modelClass.isAssignableFrom(ProfileViewModel::class.java)){
+            return ProfileViewModel(mApplication) as T
         }
 
         throw IllegalArgumentException("Unknown View Model Class : ${modelClass.name}")

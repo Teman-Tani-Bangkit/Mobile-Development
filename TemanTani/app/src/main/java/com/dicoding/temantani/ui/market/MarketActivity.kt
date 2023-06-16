@@ -1,5 +1,6 @@
 package com.dicoding.temantani.ui.market
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.temantani.adapter.Produk
@@ -17,6 +19,7 @@ import com.dicoding.temantani.db.UserAuth
 import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.ProdukViewModel
+import com.dicoding.temantani.ui.profile.ProfileActivity
 import java.io.File
 
 class MarketActivity : AppCompatActivity() {
@@ -55,7 +58,34 @@ class MarketActivity : AppCompatActivity() {
         binding?.apply {
             kategoriTanaman.setOnClickListener { produkViewModel.fetchProdukByKategori("1", TOKEN!!) }
             kategoriAlat.setOnClickListener { produkViewModel.fetchProdukByKategori("2", TOKEN!!) }
+            imgProfile.setOnClickListener { moveToProfile() }
+
+            searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                private var isSearching = false
+
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    if(query != null) produkViewModel.searchProduk(TOKEN!!, query)
+                    isSearching = true
+                    binding?.searchBar!!.clearFocus()
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    if (newText.isNullOrEmpty() && isSearching == true) {
+                        produkViewModel.fetchProduk(TOKEN!!)
+                        isSearching = false
+                        binding?.searchBar!!.clearFocus()
+                    }
+                    return true
+                }
+
+            })
         }
+    }
+
+    private fun moveToProfile(){
+        val intentToProfile = Intent(this@MarketActivity, ProfileActivity::class.java)
+        startActivity(intentToProfile)
     }
 
     private fun setCardProdukData(produkResponse: List<DataItem>){

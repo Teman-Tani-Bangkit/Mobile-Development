@@ -148,6 +148,33 @@ class ProdukViewModel(application: Application) : ViewModel() {
         })
     }
 
+    fun searchProduk(authToken: String, namaProduk : String){
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().searchProduk(authToken, namaProduk)
+        client.enqueue(object : retrofit2.Callback<ProdukResponse>{
+            override fun onResponse(
+                call: Call<ProdukResponse>,
+                response: Response<ProdukResponse>
+            ) {
+
+                if(response.isSuccessful){
+                    _isLoading.value = false
+                    _produkResponse.value = response.body()
+
+                } else {
+                    Log.e(TAG, "Gagal Fetching")
+                }
+
+            }
+
+            override fun onFailure(call: Call<ProdukResponse>, t: Throwable) {
+                _isLoading.value = false
+                Log.e(TAG, "onFailure : ${t.message}")
+            }
+
+        })
+    }
+
     companion object {
         private const val  TAG = "ProdukViewModel"
     }

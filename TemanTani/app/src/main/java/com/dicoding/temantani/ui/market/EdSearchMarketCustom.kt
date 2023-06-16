@@ -4,7 +4,9 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.dicoding.temantani.R
@@ -13,6 +15,7 @@ class EdSearchMarketCustom : AppCompatEditText {
 
     private lateinit var iconSearch : Drawable
     private lateinit var bgSearchBar : Drawable
+    private var onSubmitListener: (() -> Unit)? = null
 
     constructor(context: Context) : super(context) {
         init()
@@ -31,11 +34,16 @@ class EdSearchMarketCustom : AppCompatEditText {
     }
 
     private fun init(){
+
         bgSearchBar = ContextCompat.getDrawable(context, R.drawable.bg_search_bar_market) as Drawable
         iconSearch = ContextCompat.getDrawable(context, R.drawable.ic_search_black) as Drawable
 
         setButtonDrawables(endOfTheText = iconSearch)
 
+    }
+
+    fun setOnSubmitListener(listener: () -> Unit) {
+        onSubmitListener = listener
     }
 
     private fun setButtonDrawables(
