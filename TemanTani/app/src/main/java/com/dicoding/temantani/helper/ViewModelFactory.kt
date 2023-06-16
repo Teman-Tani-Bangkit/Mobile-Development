@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.temantani.models.DetailViewModel
+import com.dicoding.temantani.models.DeteksiViewModel
 import com.dicoding.temantani.models.LoginViewModel
 import com.dicoding.temantani.models.ProdukViewModel
 import com.dicoding.temantani.models.ProfileViewModel
@@ -27,6 +28,8 @@ class ViewModelFactory private constructor(private val mApplication: Application
             return DetailViewModel(mApplication) as T
         }else if(modelClass.isAssignableFrom(ProfileViewModel::class.java)){
             return ProfileViewModel(mApplication) as T
+        }else if(modelClass.isAssignableFrom(DeteksiViewModel::class.java)){
+            return DeteksiViewModel(mApplication) as T
         }
 
         throw IllegalArgumentException("Unknown View Model Class : ${modelClass.name}")

@@ -1,6 +1,7 @@
 package com.dicoding.temantani.api_settings
 
 import com.dicoding.temantani.api_settings.response.DetailResponse
+import com.dicoding.temantani.api_settings.response.DeteksiResponse
 import com.dicoding.temantani.api_settings.response.LoginResponse
 import com.dicoding.temantani.api_settings.response.ProdukResponse
 import com.dicoding.temantani.api_settings.response.ProfileResponse
@@ -25,6 +26,12 @@ interface ApiService {
         @Header("key") authToken: String,
         @Query("namabarang") nama: String
     ): Call<ProdukResponse>
+
+    @GET("/tampilkanProduk")
+    fun searchProdukProfile(
+        @Header("key") authToken: String,
+        @Query("namabarang") nama: String
+    ): Call<ProfileResponse>
 
     @GET("/tampilkanProduk")
     fun getProduk(
@@ -76,5 +83,13 @@ interface ApiService {
         @Part("kategori") kategori: RequestBody,
         @Part("deskripsi") deskripsi: RequestBody
     ): Call<UploadResponse>
+
+    @Multipart
+    @POST("/deteksiPenyakit")
+    fun uploadGambarDeteksi(
+        @Header("key") authToken: String,
+        @Part gambar: MultipartBody.Part,
+        @Part("tanaman") namabarang: RequestBody
+    ): Call<DeteksiResponse>
 
 }

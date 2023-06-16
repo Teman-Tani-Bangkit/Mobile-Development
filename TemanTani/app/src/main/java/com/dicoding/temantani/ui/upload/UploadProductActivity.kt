@@ -16,11 +16,14 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.temantani.R
 import com.dicoding.temantani.databinding.ActivityUploadProductBinding
+import com.dicoding.temantani.db.UserAuth
+import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.helper.reduceFileImage
 import com.dicoding.temantani.helper.uriToFile
 import com.dicoding.temantani.models.ProdukViewModel
 import com.dicoding.temantani.models.UploadViewModel
+import com.dicoding.temantani.ui.market.MarketActivity
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -28,6 +31,7 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 class UploadProductActivity : AppCompatActivity() {
+    private lateinit var userAuth : UserAuth
 
     private lateinit var uploadViewModel: UploadViewModel
 
@@ -40,6 +44,10 @@ class UploadProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _activityUploadBinding = ActivityUploadProductBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        userAuth()
+        TOKEN = userAuth.token.toString()
+        ID = userAuth.id.toString()
 
         // Pembuatan ViewModel
         uploadViewModel = obtainViewModel(this@UploadProductActivity)
@@ -60,6 +68,11 @@ class UploadProductActivity : AppCompatActivity() {
         }
     }
 
+    private fun userAuth(){
+        val userPref = UserPreference(this)
+        userAuth = userPref.getUser()
+    }
+
     private fun uploadProduk(){
         val edNama = binding?.edNamaBarang?.text
         val edHarga = binding?.edNamaBarang?.text
@@ -68,8 +81,8 @@ class UploadProductActivity : AppCompatActivity() {
         if (getFile != null && edNama?.isNotEmpty()!! && edHarga?.isNotEmpty()!! && edDeskripsi?.isNotEmpty()!!) {
             val file = reduceFileImage(getFile as File)
 
-            val authToken = "eyJhbGciOiJIUzI1NiJ9.Mw.72MlEAZJWe2NIdb6jRgrrxl9qdQ83xR3Up1SA3MJq14"
-            val userId = "2".toRequestBody("text/plain".toMediaType())
+            val authToken = TOKEN.toString()
+            val userId = ID.toString().toRequestBody("text/plain".toMediaType())
 
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
             val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
@@ -134,4 +147,9 @@ class UploadProductActivity : AppCompatActivity() {
     }
 
     private fun showLoading(state: Boolean) { binding?.progressBar?.visibility = if (state) View.VISIBLE else View.GONE }
+
+    companion object{
+        var TOKEN : String ?= null
+        var ID : String ?= null
+    }
 }

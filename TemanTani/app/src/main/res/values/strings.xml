@@ -41,4 +41,12 @@
     <string name="lihat_semua">Lihat Semua</string>
     <string name="pcs">/Pcs</string>
     <string name="produk_mu">Produk Mu</string>
+    <string name="logout">Logout</string>
+    <string name="tanaman_apa_ya">Tanaman Apa ya?</string>
+    <string name="cocok">Coba lihat tanaman yang cocok di daerahmu!</string>
+    <string name="tekan_untuk_mendapatkan_lokasi">Tekan untuk mendapatkan lokasi</string>
+    <string name="home">Home</string>
+    <string name="market">Market</string>
+    <string name="detection">Detection</string>
+    <string name="profile">Profile</string>
 </resources>

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.temantani.api_settings.ApiConfig
+import com.dicoding.temantani.api_settings.response.DeteksiResponse
 import com.dicoding.temantani.api_settings.response.UploadResponse
 import com.dicoding.temantani.helper.Event
 import okhttp3.MultipartBody
@@ -15,9 +16,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UploadViewModel(application: Application) : ViewModel() {
-    private var _uploadResponse = MutableLiveData<UploadResponse>()
-    val uploadResponse: LiveData<UploadResponse> = _uploadResponse
+class DeteksiViewModel(application: Application) : ViewModel() {
+    private val _uploadDeteksiResponse = MutableLiveData<DeteksiResponse>()
+    val uploadDeteksiResponse: LiveData<DeteksiResponse> = _uploadDeteksiResponse
 
     private val _responseMessage = MutableLiveData<Event<String>>()
     val responseMessage: LiveData<Event<String>> = _responseMessage
@@ -25,20 +26,22 @@ class UploadViewModel(application: Application) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun uploadProduct(authToken: String, userId: RequestBody, image: MultipartBody.Part, namabarang: RequestBody, harga: RequestBody, kategori: RequestBody, deskripsi: RequestBody) {
+    fun detectImage(authToken: String, image: MultipartBody.Part, kategori : RequestBody) {
 
         _isLoading.value = true
 
-        val client = ApiConfig.getApiService().uploadProduk(authToken, userId, image, namabarang, harga, kategori, deskripsi)
+        val client = ApiConfig.getApiService().uploadGambarDeteksi(authToken, image, kategori)
 
-        client.enqueue(object : Callback<UploadResponse> {
-            override fun onResponse(call: Call<UploadResponse>, response: Response<UploadResponse>) {
+        client.enqueue(object : Callback<DeteksiResponse> {
+            override fun onResponse(
+                call: Call<DeteksiResponse>,
+                response: Response<DeteksiResponse>
+            ) {
                 if (response.isSuccessful) {
                     _isLoading.value = false
 
                     if (response.body() != null) {
-                        _uploadResponse.value = response.body()
-                        _responseMessage.value = Event(_uploadResponse.value?.message.toString())
+                        _uploadDeteksiResponse.value = response.body()
                     }
                 } else {
                     _isLoading.value = false
@@ -53,15 +56,16 @@ class UploadViewModel(application: Application) : ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
+            override fun onFailure(call: Call<DeteksiResponse>, t: Throwable) {
                 _isLoading.value = false
                 _responseMessage.value = Event(t.message.toString())
                 Log.e(TAG, "onFailure : ${t.message}")
             }
+
         })
     }
 
     companion object {
-        private const val TAG = "UploadProductViewModel"
+        private const val TAG = "DeteksiViewModel"
     }
 }

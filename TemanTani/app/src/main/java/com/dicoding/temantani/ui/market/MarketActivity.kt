@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.dicoding.temantani.MainActivity
+import com.dicoding.temantani.R
 import com.dicoding.temantani.adapter.Produk
 import com.dicoding.temantani.adapter.ProdukAdapter
 import com.dicoding.temantani.api_settings.response.DataItem
@@ -19,6 +21,7 @@ import com.dicoding.temantani.db.UserAuth
 import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.ProdukViewModel
+import com.dicoding.temantani.ui.deteksi.PilihDeteksiActivity
 import com.dicoding.temantani.ui.profile.ProfileActivity
 import java.io.File
 
@@ -80,12 +83,28 @@ class MarketActivity : AppCompatActivity() {
                 }
 
             })
+
         }
+    }
+
+    private fun moveToHome(){
+        val intentToHome= Intent(this@MarketActivity, MainActivity::class.java)
+        startActivity(intentToHome)
+    }
+
+    private fun moveToPilihDeteksi(){
+        val intentToPilihDeteksi = Intent(this@MarketActivity, PilihDeteksiActivity::class.java)
+        startActivity(intentToPilihDeteksi)
     }
 
     private fun moveToProfile(){
         val intentToProfile = Intent(this@MarketActivity, ProfileActivity::class.java)
         startActivity(intentToProfile)
+    }
+
+    private fun moveToMarket(){
+        val intentToMarket = Intent(this@MarketActivity, MarketActivity::class.java)
+        startActivity(intentToMarket)
     }
 
     private fun setCardProdukData(produkResponse: List<DataItem>){

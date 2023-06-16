@@ -1,9 +1,14 @@
 package com.dicoding.temantani.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.dicoding.temantani.MainActivity
+import com.dicoding.temantani.R
 import com.dicoding.temantani.adapter.Produk
 import com.dicoding.temantani.adapter.ProdukAdapter
 import com.dicoding.temantani.api_settings.response.DataItemProfile
@@ -14,6 +19,8 @@ import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.ProfileViewModel
 import com.dicoding.temantani.ui.detail.DetailActivity
+import com.dicoding.temantani.ui.deteksi.PilihDeteksiActivity
+import com.dicoding.temantani.ui.market.MarketActivity
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var userAuth : UserAuth
@@ -31,6 +38,10 @@ class ProfileActivity : AppCompatActivity() {
         TOKEN = userAuth.token.toString()
         ID = userAuth.id.toString()
 
+        // Pembuatan RecylerView
+        val layoutManager = GridLayoutManager(this, 2)
+        binding?.rvProdukProfile?.layoutManager = layoutManager
+
         profileViewModel = obtainViewModel(this@ProfileActivity)
 
         profileViewModel.profileResponse.observe(this){response ->
@@ -41,6 +52,33 @@ class ProfileActivity : AppCompatActivity() {
             showLoading(it)
         }
 
+        binding?.apply {
+            tvLogout.setOnClickListener { userLogout() }
+            iconBack.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
+
+//            searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+//                private var isSearching = false
+//
+//                override fun onQueryTextSubmit(query: String?): Boolean {
+//                    if(query != null) profileViewModel.searchProduk(MarketActivity.TOKEN!!, query)
+//                    isSearching = true
+//                    binding?.searchBar!!.clearFocus()
+//                    return true
+//                }
+//
+//                override fun onQueryTextChange(newText: String?): Boolean {
+//                    if (newText.isNullOrEmpty() && isSearching == true) {
+//                        profileViewModel.getProfileData(ID.toString(), TOKEN.toString())
+//                        isSearching = false
+//                        binding?.searchBar!!.clearFocus()
+//                    }
+//                    return true
+//                }
+//
+//            })
+        }
+
+
     }
 
     private fun setProfileData(profileDataResponse : ProfileResponse){
@@ -48,7 +86,7 @@ class ProfileActivity : AppCompatActivity() {
         binding?.textUsername?.text = profileDataResponse.data?.user?.nama
         binding?.textUseremail?.text = profileDataResponse.data?.user?.email
 
-        profileDataResponse.data?.let { setCardProdukData(it.barang) }
+        profileDataResponse.data?.let { setCardProdukData(it.barang.reversed()) }
     }
 
     private fun setCardProdukData(produkResponse: List<DataItemProfile>){
@@ -78,6 +116,12 @@ class ProfileActivity : AppCompatActivity() {
     private fun obtainViewModel(activity: AppCompatActivity) : ProfileViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
         return ViewModelProvider(activity, factory).get(ProfileViewModel::class.java)
+    }
+
+    private fun userLogout(){
+        val userPref = UserPreference(this)
+        userPref.userLogout()
+        finishAffinity()
     }
 
     private fun userAuth(){

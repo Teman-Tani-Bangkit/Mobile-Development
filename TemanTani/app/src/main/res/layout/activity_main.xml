@@ -54,15 +54,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/batasCokelat"
             app:layout_constraintHorizontal_bias="0.5"
             android:text="@string/teman_tani"
             android:textColor="@color/white"
             android:textSize="28sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_upload"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/imageview"
+            android:src="@drawable/ic_upload_white"
+            app:layout_constraintTop_toTopOf="@id/img_profile"
+            app:layout_constraintEnd_toStartOf="@id/img_profile"
+            app:layout_constraintBottom_toBottomOf="@id/img_profile"
+            android:layout_marginEnd="16dp"/>
 
         <ImageView
             android:id="@+id/img_profile"
@@ -112,7 +122,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             />
-        
+
         <HorizontalScrollView
             android:id="@+id/container_kategori_deteksi"
             android:layout_width="0dp"

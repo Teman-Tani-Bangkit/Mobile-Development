@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.temantani.api_settings.ApiConfig
 import com.dicoding.temantani.api_settings.response.ProfileResponse
-import com.dicoding.temantani.ui.detail.DetailActivity
 import com.dicoding.temantani.ui.profile.ProfileActivity
 import retrofit2.Call
 import retrofit2.Response
@@ -23,7 +22,34 @@ class ProfileViewModel(application: Application) : ViewModel() {
         getProfileData(ProfileActivity.ID.toString(), ProfileActivity.TOKEN.toString())
     }
 
-    private fun getProfileData(idUser : String, authToken : String){
+    fun searchProduk(authToken: String, namaProduk : String){
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().searchProdukProfile(authToken, namaProduk)
+        client.enqueue(object : retrofit2.Callback<ProfileResponse>{
+            override fun onResponse(
+                call: Call<ProfileResponse>,
+                response: Response<ProfileResponse>
+            ) {
+
+                if(response.isSuccessful){
+                    _isLoading.value = false
+                    _profileResponse.value = response.body()
+
+                } else {
+                    Log.e(TAG, "Gagal Fetching")
+                }
+
+            }
+
+            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                _isLoading.value = false
+                Log.e(TAG, "onFailure : ${t.message}")
+            }
+
+        })
+    }
+
+     fun getProfileData(idUser : String, authToken : String){
         _isLoading.value = true
 
         val client = ApiConfig.getApiService().getDataProfile(idUser, authToken)

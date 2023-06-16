@@ -114,69 +114,80 @@
             app:layout_constraintTop_toBottomOf="@id/text_username"
             tools:ignore="TextContrastCheck" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/kategori_tanaman"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            app:cardCornerRadius="8dp"
-            app:layout_constraintStart_toStartOf="@id/batasKiri"
-            app:layout_constraintEnd_toStartOf="@id/batasTengah"
-            app:layout_constraintTop_toBottomOf="@id/batasCokelat"
-            >
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/kategori_tanam"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/tanaman"
-                    android:textColor="@color/white" />
-
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/kategori_alat"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="15dp"
-            app:cardCornerRadius="8dp"
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@id/batasKanan"
-            app:layout_constraintTop_toBottomOf="@id/batasCokelat"
-            app:layout_constraintStart_toEndOf="@id/batasTengah"
-            >
+            app:layout_constraintTop_toTopOf="@id/profile_account"
+            app:layout_constraintBottom_toBottomOf="@id/profile_account"
+            android:text="@string/logout"
+            android:textColor="@color/green_secondary"
+            />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/kategori_alat"
-                >
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/kategori_tanaman"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:layout_constraintStart_toStartOf="@id/batasKiri"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/batasTengah"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/batasCokelat"-->
+<!--            >-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/alat_tani"
-                    android:textColor="@color/white"
-                    />
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/kategori_tanam"-->
+<!--                >-->
 
-            </RelativeLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:text="@string/tanaman"-->
+<!--                    android:textColor="@color/white" />-->
 
-        </androidx.cardview.widget.CardView>
+<!--            </RelativeLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/kategori_alat"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            app:cardCornerRadius="8dp"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/batasKanan"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/batasCokelat"-->
+<!--            app:layout_constraintStart_toEndOf="@id/batasTengah"-->
+<!--            >-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/kategori_alat"-->
+<!--                >-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:text="@string/alat_tani"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    />-->
+
+<!--            </RelativeLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
 
         <TextView
             android:id="@+id/text_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/batasKiri"
-            app:layout_constraintTop_toBottomOf="@id/kategori_tanaman"
+            app:layout_constraintTop_toBottomOf="@id/batasCokelat"
             android:layout_marginTop="20dp"
             android:text="@string/produk_mu"
             android:textSize="22sp"

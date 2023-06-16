@@ -16,8 +16,11 @@ import com.dicoding.temantani.db.UserAuth
 import com.dicoding.temantani.db.UserPreference
 import com.dicoding.temantani.helper.ViewModelFactory
 import com.dicoding.temantani.models.ProdukViewModel
+import com.dicoding.temantani.ui.deteksi.DeteksiTanamanActivity
+import com.dicoding.temantani.ui.deteksi.PilihDeteksiActivity
 import com.dicoding.temantani.ui.market.MarketActivity
 import com.dicoding.temantani.ui.profile.ProfileActivity
+import com.dicoding.temantani.ui.upload.UploadProductActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var userAuth : UserAuth
@@ -57,12 +60,30 @@ class MainActivity : AppCompatActivity() {
             tvTextSeeMoreAlat.setOnClickListener { moveToMarket() }
             tvTextSeeMoreTanaman.setOnClickListener { moveToMarket() }
             imgProfile.setOnClickListener { moveToProfile() }
+            imgToDeteksi.setOnClickListener { moveToPilihDeteksi() }
+            padi.setOnClickListener { selectPadi() }
+            singkong.setOnClickListener { selectSingkong() }
+            kentang.setOnClickListener { selectKentang() }
+            tomat.setOnClickListener { selectTomat() }
+            jagung.setOnClickListener { selectJagung() }
+            cabai.setOnClickListener { selectCabai() }
+            imgUpload.setOnClickListener { moveToUpload() }
         }
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
         finishAffinity()
+    }
+
+    private fun moveToUpload(){
+        val intentToUpload= Intent(this@MainActivity, UploadProductActivity::class.java)
+        startActivity(intentToUpload)
+    }
+
+    private fun moveToPilihDeteksi(){
+        val intentToPilihDeteksi = Intent(this@MainActivity, PilihDeteksiActivity::class.java)
+        startActivity(intentToPilihDeteksi)
     }
 
     private fun moveToProfile(){
@@ -106,6 +127,41 @@ class MainActivity : AppCompatActivity() {
         }
 
         return listCard
+    }
+
+    private fun selectPadi(){
+        val intentWithPadi = Intent(this, DeteksiTanamanActivity::class.java)
+        intentWithPadi.putExtra(DeteksiTanamanActivity.CATEGORY_DETECT, "Rice")
+        startActivity(intentWithPadi)
+    }
+
+    private fun selectSingkong(){
+        val intentWithSingkong = Intent(this, DeteksiTanamanActivity::class.java)
+        intentWithSingkong.putExtra(DeteksiTanamanActivity.CATEGORY_DETECT, "Cassava")
+        startActivity(intentWithSingkong)
+    }
+
+    private fun selectKentang(){
+        val intentWithKentang = Intent(this, DeteksiTanamanActivity::class.java)
+        intentWithKentang.putExtra(DeteksiTanamanActivity.CATEGORY_DETECT, "Potato")
+        startActivity(intentWithKentang)
+    }
+
+    private fun selectTomat(){
+        val intentWithTomat = Intent(this, DeteksiTanamanActivity::class.java)
+        intentWithTomat. putExtra(DeteksiTanamanActivity.CATEGORY_DETECT, "Tomato")
+        startActivity(intentWithTomat)
+    }
+
+    private fun selectJagung(){
+        val intentWithJagung = Intent(this, DeteksiTanamanActivity::class.java)
+        intentWithJagung.putExtra(DeteksiTanamanActivity.CATEGORY_DETECT, "Corn")
+        startActivity(intentWithJagung)
+    }
+    private fun selectCabai(){
+        val intentWithCabai = Intent(this, DeteksiTanamanActivity::class.java)
+        intentWithCabai.putExtra(DeteksiTanamanActivity.CATEGORY_DETECT, "Chili")
+        startActivity(intentWithCabai)
     }
 
     private fun userAuth(){
