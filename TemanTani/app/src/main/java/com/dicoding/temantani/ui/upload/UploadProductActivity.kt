@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.temantani.MainActivity
 import com.dicoding.temantani.R
 import com.dicoding.temantani.databinding.ActivityUploadProductBinding
 import com.dicoding.temantani.db.UserAuth
@@ -65,6 +66,7 @@ class UploadProductActivity : AppCompatActivity() {
         binding?.apply {
             btnUpload.setOnClickListener { uploadProduk() }
             imgUpload.setOnClickListener{ startGallery() }
+            iconBack.setOnClickListener { onBackPressed() }
         }
     }
 
@@ -147,6 +149,12 @@ class UploadProductActivity : AppCompatActivity() {
     }
 
     private fun showLoading(state: Boolean) { binding?.progressBar?.visibility = if (state) View.VISIBLE else View.GONE }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this@UploadProductActivity, MainActivity::class.java)
+        startActivity(intent)
+    }
 
     companion object{
         var TOKEN : String ?= null

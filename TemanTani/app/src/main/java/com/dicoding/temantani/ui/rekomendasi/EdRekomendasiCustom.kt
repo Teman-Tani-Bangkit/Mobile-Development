@@ -33,7 +33,7 @@ class EdRekomendasiCustom : AppCompatEditText {
     }
 
     private fun init() {
-        bgEdText = ContextCompat.getDrawable(context, R.drawable.bg_ed_text_custom) as Drawable
+        bgEdText = ContextCompat.getDrawable(context, R.drawable.bg_ed_rekomen) as Drawable
     }
 
 
@@ -42,13 +42,15 @@ class EdRekomendasiCustom : AppCompatEditText {
         background = bgEdText
 
         hint = when(id){
-            R.id.ed_nama -> "Nama"
+            R.id.ed_nitrogen -> "N (Nitrogen)"
 
-            R.id.ed_email -> "Email"
+            R.id.ed_fosfor -> "P (Fosfor)"
 
-            R.id.ed_telephone -> "No.Telepon"
+            R.id.ed_kalium -> "K (Kalium)"
 
-            R.id.ed_password -> "Password"
+            R.id.ed_ph -> "Ph Tanah"
+
+            R.id.ed_rainfall -> "Curah Hujan (Rainfall)"
 
             else -> ""
         }

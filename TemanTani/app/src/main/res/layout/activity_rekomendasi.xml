@@ -12,131 +12,175 @@
         android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/batasTengah"
+            android:id="@+id/batasImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
+            app:layout_constraintGuide_percent="0.48"
+            />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/batasForm"
+            android:id="@+id/batasJudul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.18" />
+            app:layout_constraintGuide_percent="0.17"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKiri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="18dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="18dp" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgVas"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/jagung"
+            android:background="@drawable/bgrekomfix"
             android:contentDescription="@string/imageview"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@id/batasTengah"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@id/batasImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:id="@+id/text_judul_rekom"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginTop="5dp"
             android:text="@string/tanaman_apa_ya"
-            android:textSize="30sp"
             android:textColor="@color/white"
+            android:textSize="30sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/batasForm"/>
+            app:layout_constraintTop_toBottomOf="@id/batasJudul"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
+            android:id="@+id/text_sub_judul_rekom"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15sp"
-            android:gravity="center"
-            android:text="@string/cocok"
+            android:text="@string/sub_judul"
             android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/text_judul_rekom"
+            app:layout_constraintStart_toStartOf="@id/text_judul_rekom"
+            app:layout_constraintTop_toBottomOf="@id/text_judul_rekom"
+            tools:ignore="TextContrastCheck" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_form"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:layout_marginTop="16dp"
-            android:background="#29CB7D"
-            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            app:layout_constraintTop_toBottomOf="@id/text_sub_judul_rekom"
+            android:layout_marginTop="14dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="18dp"
+            >
 
-            android:padding="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:layout_editor_absoluteX="30dp">
-
-            <TextView
-                android:id="@+id/tv_lokasi"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:background="@drawable/bg_ed_rekomen"
-                android:text="@string/tekan_untuk_mendapatkan_lokasi"
-                />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="14dp"
+                android:background="@color/green_card"
+                >
 
-            <EditText
-                android:id="@+id/nitrogen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@color/white"
-                android:hint="N (Nitrogen)"
-                android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lokasi" />
+                <TextView
+                    android:id="@+id/tv_lokasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_ed_rekomen" android:text="@string/tekan"
+                    app:drawableStartCompat="@drawable/ic_location_green"
+                    android:drawablePadding="8dp"
+                    android:maxLines="2"
+                    />
 
-            <EditText
-                android:id="@+id/fosfor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@color/white"
-                android:hint="P (Fosfor)"
-                android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nitrogen" />
+                <com.dicoding.temantani.ui.rekomendasi.EdRekomendasiCustom
+                    android:id="@+id/ed_nitrogen"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    tools:ignore="TextContrastCheck"
+                    android:inputType="numberDecimal"/>
 
-            <EditText
-                android:id="@+id/kalium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@color/white"
-                android:hint="K (Kalium)"
-                android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fosfor" />
+                <com.dicoding.temantani.ui.rekomendasi.EdRekomendasiCustom
+                    android:id="@+id/ed_fosfor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    tools:ignore="TextContrastCheck"
+                    android:inputType="numberDecimal"/>
 
-            <EditText
-                android:id="@+id/rainfall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:background="@color/white"
-                android:hint="Rainfall"
-                android:padding="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kalium" />
+                <com.dicoding.temantani.ui.rekomendasi.EdRekomendasiCustom
+                    android:id="@+id/ed_kalium"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    tools:ignore="TextContrastCheck"
+                    android:inputType="numberDecimal"/>
 
-        </LinearLayout>
+                <com.dicoding.temantani.ui.rekomendasi.EdRekomendasiCustom
+                    android:id="@+id/ed_ph"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    tools:ignore="TextContrastCheck"
+                    android:inputType="numberDecimal"/>
+
+                <com.dicoding.temantani.ui.rekomendasi.EdRekomendasiCustom
+                    android:id="@+id/ed_rainfall"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    tools:ignore="TextContrastCheck"
+                    android:inputType="numberDecimal"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="24dp"
+            android:id="@+id/btn_rekomendasi"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            app:layout_constraintStart_toStartOf="@id/card_form"
+            app:layout_constraintTop_toBottomOf="@id/card_form"
+            app:layout_constraintEnd_toEndOf="@id/card_form"
+            android:layout_marginTop="30dp"
             android:background="@drawable/btn_green"
-            android:text="Tambah Barang"
+            android:text="@string/tambah_barangmu"
+            android:textColor="@color/white"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible"
+            android:elevation="20dp"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

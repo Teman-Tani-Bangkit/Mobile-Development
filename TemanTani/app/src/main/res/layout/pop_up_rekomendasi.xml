@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="10dp"
+    android:layout_gravity="center"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp"
+        >
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasTengah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKiri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="14dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/batasKanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="14dp" />
+
+        <View
+            android:id="@+id/image_tanaman_sakit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#9F8772"
+            android:contentDescription="@string/imageview"
+            app:layout_constraintBottom_toTopOf="@id/batasTengah"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"
+            />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/batasTengah"
+            android:text="@string/headline_cocok"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/img_crop_tengah"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/ic_grass"
+            app:layout_constraintTop_toTopOf="@id/batasTengah"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/imageview"
+            app:layout_constraintVertical_bias="0.4"
+            />
+
+        <TextView
+            android:id="@+id/text_crops_tengah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanaman"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/img_crop_tengah"
+            app:layout_constraintEnd_toEndOf="@id/img_crop_tengah"
+            app:layout_constraintTop_toBottomOf="@id/img_crop_tengah"
+            />
+
+        <ImageView
+            android:id="@+id/img_crop_kiri"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/ic_grass"
+            app:layout_constraintTop_toTopOf="@id/img_crop_tengah"
+            app:layout_constraintBottom_toBottomOf="@id/img_crop_tengah"
+            app:layout_constraintStart_toStartOf="@id/batasKiri"
+            android:contentDescription="@string/imageview"
+            />
+
+        <TextView
+            android:id="@+id/text_crops_kiri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanaman"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/img_crop_kiri"
+            app:layout_constraintEnd_toEndOf="@id/img_crop_kiri"
+            app:layout_constraintTop_toBottomOf="@id/img_crop_kiri"
+            />
+
+        <ImageView
+            android:id="@+id/img_crop_kanan"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/ic_grass"
+            app:layout_constraintTop_toTopOf="@id/img_crop_tengah"
+            app:layout_constraintBottom_toBottomOf="@id/img_crop_tengah"
+            app:layout_constraintEnd_toEndOf="@id/batasKanan"
+            android:contentDescription="@string/imageview"
+            />
+
+        <TextView
+            android:id="@+id/text_crops_kanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tanaman"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/img_crop_kanan"
+            app:layout_constraintEnd_toEndOf="@id/img_crop_kanan"
+            app:layout_constraintTop_toBottomOf="@id/img_crop_kanan"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

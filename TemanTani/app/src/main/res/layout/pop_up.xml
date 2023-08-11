@@ -62,13 +62,14 @@
             android:id="@+id/deskripsi_tanaman_sakit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="4dp"
+            android:padding="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nama_tanaman_sakit"
             android:layout_marginTop="15dp"
+            android:justificationMode="inter_word"
             android:text="@string/lorem"
-            />
+            tools:ignore="UnusedAttribute" />
 
 
 

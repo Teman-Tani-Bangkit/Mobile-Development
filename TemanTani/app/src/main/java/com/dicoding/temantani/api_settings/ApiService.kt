@@ -6,7 +6,9 @@ import com.dicoding.temantani.api_settings.response.LoginResponse
 import com.dicoding.temantani.api_settings.response.ProdukResponse
 import com.dicoding.temantani.api_settings.response.ProfileResponse
 import com.dicoding.temantani.api_settings.response.RegisterResponse
+import com.dicoding.temantani.api_settings.response.RekomendasiResponse
 import com.dicoding.temantani.api_settings.response.UploadResponse
+import com.dicoding.temantani.api_settings.response.WeatherResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -84,6 +86,19 @@ interface ApiService {
         @Part("deskripsi") deskripsi: RequestBody
     ): Call<UploadResponse>
 
+    @FormUrlEncoded
+    @POST("/rekomendasi")
+    fun getRekomendasi(
+        @Header("key") authToken: String,
+        @Field("n") n : String,
+        @Field("p") p : String,
+        @Field("k") k : String,
+        @Field("temperature") temp: String,
+        @Field("humidity") humidity: String,
+        @Field("ph") ph: String,
+        @Field("rainfall") rainfall: String,
+    ): Call<RekomendasiResponse>
+
     @Multipart
     @POST("/deteksiPenyakit")
     fun uploadGambarDeteksi(
@@ -91,5 +106,13 @@ interface ApiService {
         @Part gambar: MultipartBody.Part,
         @Part("tanaman") namabarang: RequestBody
     ): Call<DeteksiResponse>
+
+    @GET("/data/2.5/weather")
+    fun getWeather(
+        @Query("lat") latitude: String,
+        @Query("lon") longitude: String,
+        @Query("units") units : String,
+        @Query("appid") apiKey: String
+    ): Call<WeatherResponse>
 
 }

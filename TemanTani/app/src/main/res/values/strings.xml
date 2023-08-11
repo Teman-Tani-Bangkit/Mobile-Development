@@ -49,4 +49,7 @@
     <string name="market">Market</string>
     <string name="detection">Detection</string>
     <string name="profile">Profile</string>
+    <string name="tekan">Tekan di sini untuk mengetahui lokasi mu</string>
+    <string name="sub_judul">Coba lihat tanaman yang cocok di daerah mu!</string>
+    <string name="headline_cocok">Tanaman yang cocok di daerah mu</string>
 </resources>

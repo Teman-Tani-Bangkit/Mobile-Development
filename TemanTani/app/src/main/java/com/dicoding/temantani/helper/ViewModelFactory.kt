@@ -9,7 +9,9 @@ import com.dicoding.temantani.models.LoginViewModel
 import com.dicoding.temantani.models.ProdukViewModel
 import com.dicoding.temantani.models.ProfileViewModel
 import com.dicoding.temantani.models.RegisterViewModel
+import com.dicoding.temantani.models.RekomendasiViewModel
 import com.dicoding.temantani.models.UploadViewModel
+import com.dicoding.temantani.models.WeatherViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
 
@@ -30,6 +32,10 @@ class ViewModelFactory private constructor(private val mApplication: Application
             return ProfileViewModel(mApplication) as T
         }else if(modelClass.isAssignableFrom(DeteksiViewModel::class.java)){
             return DeteksiViewModel(mApplication) as T
+        }else if(modelClass.isAssignableFrom(RekomendasiViewModel::class.java)){
+            return RekomendasiViewModel(mApplication) as T
+        }else if(modelClass.isAssignableFrom(WeatherViewModel::class.java)){
+            return WeatherViewModel(mApplication) as T
         }
 
         throw IllegalArgumentException("Unknown View Model Class : ${modelClass.name}")

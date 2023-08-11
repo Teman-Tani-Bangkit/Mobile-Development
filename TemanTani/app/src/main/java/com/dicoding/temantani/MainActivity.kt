@@ -20,6 +20,7 @@ import com.dicoding.temantani.ui.deteksi.DeteksiTanamanActivity
 import com.dicoding.temantani.ui.deteksi.PilihDeteksiActivity
 import com.dicoding.temantani.ui.market.MarketActivity
 import com.dicoding.temantani.ui.profile.ProfileActivity
+import com.dicoding.temantani.ui.rekomendasi.RekomendasiActivity
 import com.dicoding.temantani.ui.upload.UploadProductActivity
 
 class MainActivity : AppCompatActivity() {
@@ -61,13 +62,15 @@ class MainActivity : AppCompatActivity() {
             tvTextSeeMoreTanaman.setOnClickListener { moveToMarket() }
             imgProfile.setOnClickListener { moveToProfile() }
             imgToDeteksi.setOnClickListener { moveToPilihDeteksi() }
+            imgToRekomendasi.setOnClickListener { moveToRekomendasi() }
+            imgUpload.setOnClickListener { moveToUpload() }
+
             padi.setOnClickListener { selectPadi() }
             singkong.setOnClickListener { selectSingkong() }
             kentang.setOnClickListener { selectKentang() }
             tomat.setOnClickListener { selectTomat() }
             jagung.setOnClickListener { selectJagung() }
             cabai.setOnClickListener { selectCabai() }
-            imgUpload.setOnClickListener { moveToUpload() }
         }
     }
 
@@ -94,6 +97,11 @@ class MainActivity : AppCompatActivity() {
     private fun moveToMarket(){
         val intentToMarket = Intent(this@MainActivity, MarketActivity::class.java)
         startActivity(intentToMarket)
+    }
+
+    private fun moveToRekomendasi(){
+        val intentToRekomendasi = Intent(this@MainActivity, RekomendasiActivity::class.java)
+        startActivity(intentToRekomendasi)
     }
 
     private fun setCardAlatTaniData(produkResponse: List<DataItem>){
